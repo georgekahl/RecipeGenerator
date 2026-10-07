@@ -6,16 +6,16 @@ public class ShoppingItem{
     private String unit;
     private boolean purchased;
 
-    public ShoppingItem(String ingredientName, double quantity, String unit, boolean purchased){
-        
-        this.ingredientName = ingredientName;
-        this.quantity = quantity;
-        this.unit = unit;
-        this.purchased = purchased;
+    public ShoppingItem(String ingredientName, double quantity, String unit) {
+
+    this.ingredientName = ingredientName;
+    this.quantity = quantity;
+    this.unit = unit;
+    this.purchased = false;
     }
 
     public String getName(){
-        return name;
+        return ingredientName;
     }
     
     public double getQuantity(){

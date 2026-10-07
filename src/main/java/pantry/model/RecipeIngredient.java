@@ -1,6 +1,7 @@
 package model;
 
 public class RecipeIngredient{
+    
     private String ingredientName;
     private double quantity;
     private String unit;
@@ -13,7 +14,7 @@ public class RecipeIngredient{
     }
 
     public String getName(){
-        return name;
+        return ingredientName;
     }
 
     public double getQuantity(){
@@ -24,7 +25,7 @@ public class RecipeIngredient{
         return unit;
     }
 
-    public void setQuanitty(double quantity){
+    public void setQuantity(double quantity){
         this.quantity = quantity;
     }
 }

@@ -7,23 +7,26 @@ import model.ShoppingItem;
 import model.ShoppingList;
 
 public class ShoppingListService{
-    public ShoppingList generateShoppingList(List<Recipe> recipes){
-        ShoppingList shoppingList = new ShoppingList();
-        for(Recipe recipe : recipes){
-            for(RecipeIngredient recipeIngredient : recipe.getIngredients()){
-                ingredient pantryIngredient = pantryService.findIngredient(recipeIngredient.getName());
+    private PantryService pantryService;
 
-                if (pantryIngredient == null){
-                    ShoppingItem = new ShoppingItem(recipeIngredient.getName(), recipeIngredient.getQuantity(), recipeIngredient.getUnit());
-                    shoppingList.addItem(item);
-                }
-                else if (pantryIngredient.getQuantity() < recipeIngredient.getQuantity()){
-                    double missingQuantity = recipeIngredient.getQuantity() - pantryIngredient.getQuantity();
-                    ShoppingItem = new ShoppingItem(recipeIngredient.getName(), missingQuantity, recipeIngredient.getUnit());
-                }
+    public ShoppingListService(PantryService pantryService){
+        this.pantryService = pantryService;
+    }
+    public ShoppingList generateShoppingList(Recipe recipe){
+        ShoppingList shoppingList = new ShoppingList();
+        for(RecipeIngredient recipeIngredient : recipe.getIngredients()){
+            Ingredient pantryIngredient = pantryService.findIngredient(recipeIngredient.getName());
+
+            if (pantryIngredient == null){
+                ShoppingItem item = new ShoppingItem(recipeIngredient.getName(), recipeIngredient.getQuantity(), recipeIngredient.getUnit());
+                shoppingList.addItem(item);
+            }
+            else if (pantryIngredient.getQuantity() < recipeIngredient.getQuantity()){
+                double missingQuantity = recipeIngredient.getQuantity() - pantryIngredient.getQuantity();
+                ShoppingItem item = new ShoppingItem(recipeIngredient.getName(), missingQuantity, recipeIngredient.getUnit());
                 shoppingList.addItem(item);
             }
         }        
-        return shoppingList;
+    return shoppingList;
     }
 }

@@ -8,11 +8,10 @@ public class Recipe{
     private List<RecipeIngredient> ingredients;
     private String instructions;
 
-    public Recipe(String name, List<RecipeIngredient> ingredients, String instructions){
+    public Recipe(String name){
 
         this.name = name;
-        this.ingredients = ingredients;
-        this.instructions = instructions;
+        this.ingredients = new ArrayList<>();
     }
 
     public String getName(){
@@ -21,5 +20,13 @@ public class Recipe{
 
     public List<RecipeIngredient> getIngredients(){
         return ingredients;
+    }
+
+    public void addIngredient(RecipeIngredient ingredient){
+        ingredients.add(ingredient);
+    }
+    
+    public void removeIngredient(RecipeIngredient ingredient){
+        ingredients.remove(ingredient);
     }
 }

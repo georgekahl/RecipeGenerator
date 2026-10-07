@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PantryService{
-    private List<Ingredients> ingredients;
+    private List<Ingredient> ingredients;
 
     public PantryService(){
         ingredients = new ArrayList<>();

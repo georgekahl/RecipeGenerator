@@ -31,7 +31,7 @@ public class Main{
 
         chickenRice.addIngredient(new RecipeIngredient("Chicken", 500, "g"));
         chickenRice.addIngredient(new RecipeIngredient("Rice", 300, "g"));
-        chickenRice.addIngredient(new RercipeIngredient("Onion", 2, "item"));
+        chickenRice.addIngredient(new RecipeIngredient("Onion", 2, "item"));
 
         RecipeService recipeService = new RecipeService(pantryService);
         recipeService.addRecipe(chickenRice);
@@ -39,7 +39,7 @@ public class Main{
         System.out.println();
         System.out.println("Recipe check");
 
-        if (RecipeService.canMakeRecipe(chickenRice)){
+        if (recipeService.canMakeRecipe(chickenRice)){
             System.out.println("You can make " + chickenRice.getName());
         }else{
             System.out.println("You cannot make " + chickenRice.getName());
@@ -56,7 +56,7 @@ public class Main{
         }
 
         ExpiryService expiryService = new ExpiryService();
-        List<Ingredients> expiringSoon = expiryService.getExpiringSoon(pantryService.getIngredients(),3);
+        List<Ingredient> expiringSoon = expiryService.getExpiringSoon(pantryService.getIngredients(),3);
 
         System.out.println();
         System.out.println("Expiring soon");

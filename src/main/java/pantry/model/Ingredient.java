@@ -12,7 +12,7 @@ public class Ingredient{
         this.name = name;
         this.quantity = quantity;
         this.unit = unit;
-        this.expiryDate = expirdyDate;
+        this.expiryDate = expiryDate;
     }
 
     public String getName(){
@@ -31,9 +31,9 @@ public class Ingredient{
         return expiryDate;
     }
 
-    public void setQuanity(double quantity){
-        this.quanity = quantity;
-    }
+    public void setQuantity(double quantity) {
+    this.quantity = quantity;
+}
 
     public void setExpiryDate(LocalDate expiryDate){
         this.expiryDate = expiryDate;

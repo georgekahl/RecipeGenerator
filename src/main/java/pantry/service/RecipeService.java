@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeService{
-    private PantryService PantryService;
+    private PantryService pantryService;
     private List<Recipe> recipes;
     public RecipeService(PantryService pantryService){
         this.pantryService = pantryService;
