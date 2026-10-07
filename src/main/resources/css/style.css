@@ -1,0 +1,89 @@
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #f5f5f5;
+}
+
+.sidebar{
+    -fx-background-color: #2c3e50;
+    -fx-padding: 25px;
+    -fx-pref-width: 220px;
+}
+
+.app-title{
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 20px 0;
+}
+
+.nav-button{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12px 0;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover{
+    -fx-background-color: #34495e;
+}
+
+.content{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.page-title{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.subtitle{
+    -fx-font-size: 186x;
+    -fx-text-fill: #7f8c8d;
+}
+
+.stat-card{
+    -fx-background-color: white;
+    -fx-padding: 20px;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 120px;
+    -fx-background-radius: 8px;
+}
+
+.stat-title{
+    -fx-font-size: 15px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.state-number{
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.stat-description{
+    -fx-font-size: 13px;
+    -fx-text-fill: #95a5a6;
+}
+
+.section-title{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.pantry-preview{
+    -fx-background-color: white;
+    -fx-bacgkground-radius: 8px;
+    -fx-padding: 25px;
+    -fx-min-height: 150px;
+}
+
+.empty-message{
+    -fx-font-size: 15px;
+    -fx-text-fill: #95a5a6;
+}
