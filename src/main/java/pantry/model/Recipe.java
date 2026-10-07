@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 public class Recipe{
     private String name;
     private List<RecipeIngredient> ingredients;
@@ -8,5 +10,13 @@ public class Recipe{
         this.name = name;
         this.ingredients = ingredients;
         this.instructions = instructions;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public List<RecipeIngredient> getIngredients(){
+        return ingredients;
     }
 }
