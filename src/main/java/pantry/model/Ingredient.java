@@ -1,4 +1,4 @@
-package model;
+package pantry.model;
 
 import java.time.LocalDate;
 

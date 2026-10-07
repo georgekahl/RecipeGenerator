@@ -1,6 +1,6 @@
-package service;
+package pantry.service;
 
-import model.Ingredient;
+import pantry.model.Ingredient;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package model;
+package pantry.model;
 
 public class ShoppingItem{
     private String ingredientName;

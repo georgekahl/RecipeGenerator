@@ -1,10 +1,10 @@
-package service;
+package pantry.service;
 
-import model.Ingredient;
-import model.Recipe;
-import model.RecipeIngredient;
-import model.ShoppingItem;
-import model.ShoppingList;
+import pantry.model.Ingredient;
+import pantry.model.Recipe;
+import pantry.model.RecipeIngredient;
+import pantry.model.ShoppingItem;
+import pantry.model.ShoppingList;
 
 public class ShoppingListService{
     private PantryService pantryService;

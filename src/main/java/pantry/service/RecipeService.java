@@ -1,8 +1,8 @@
-package service;
+package pantry.service;
 
-import model.Ingredient;
-import model.Recipe;
-import model.RecipeIngredient;
+import pantry.model.Ingredient;
+import pantry.model.Recipe;
+import pantry.model.RecipeIngredient;
 
 import java.util.ArrayList;
 import java.util.List;

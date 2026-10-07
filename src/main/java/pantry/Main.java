@@ -1,20 +1,39 @@
-import model.Ingredient;
-import model.Recipe;
-import model.RecipeIngredient;
-import model.ShoppingItem;
-import model.ShoppingList;
+package pantry;
 
-import service.ExpiryService;
-import service.PantryService;
-import service.RecipeService;
-import service.ShoppingListService;
+import pantry.database.Database;
+import pantry.database.IngredientDao;
+
+import pantry.model.Ingredient;
+import pantry.model.Recipe;
+import pantry.model.RecipeIngredient;
+import pantry.model.ShoppingItem;
+import pantry.model.ShoppingList;
+
+import pantry.service.ExpiryService;
+import pantry.service.PantryService;
+import pantry.service.RecipeService;
+import pantry.service.ShoppingListService;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public class Main{
     public static void main(String[] args){
+
+
+        try {
+            Database.connect();
+            System.out.println("Database connected!");
+        } catch (Exception e) {
+            System.out.println("Database connection failed!");
+            e.printStackTrace();
+        }
+
+        Database.createTables();
+
         PantryService pantryService = new PantryService();
+
+        IngredientDao ingredientDao = new IngredientDao();
 
         Ingredient chicken = new Ingredient("Chicken", 300, "g", LocalDate.now().plusDays(2));
         Ingredient rice = new Ingredient("Rice", 1000, "g", LocalDate.now().plusMonths(6));
@@ -23,6 +42,16 @@ public class Main{
         pantryService.addIngredient(chicken);
         pantryService.addIngredient(rice);
         pantryService.addIngredient(onion);
+
+        ingredientDao.saveIngredient(chicken);
+        ingredientDao.saveIngredient(rice);
+        ingredientDao.saveIngredient(onion);
+
+        List<Ingredient> databaseIngredients = ingredientDao.findAll();
+        System.out.println("Ingredients from database:");
+        for (Ingredient ingredient : databaseIngredients){
+            System.out.println(ingredient.getName() + " - " + ingredient.getQuantity() + " - " + ingredient.getUnit());
+        }
 
         System.out.println("Pantry");
         pantryService.displayPantry();
@@ -62,7 +91,7 @@ public class Main{
         System.out.println("Expiring soon");
 
         for (Ingredient ingredient : expiringSoon){
-            System.out.println(ingredient.getName() + " expries on " + ingredient.getExpiryDate());
+            System.out.println(ingredient.getName() + " expires on " + ingredient.getExpiryDate());
         }
 
     }
