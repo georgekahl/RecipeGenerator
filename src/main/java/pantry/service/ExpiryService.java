@@ -1,5 +1,11 @@
+package service;
+
+import model.Ingredient;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 public class ExipiryService{
     public List<Ingredient> getExpiringSoon(List<Ingredient> ingredients, int days){
         List<Ingredient> expiringSoon = new ArrayList<>();

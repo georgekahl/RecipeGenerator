@@ -1,5 +1,11 @@
-import java.util.ArrayList;
-import java.util.List;
+package service;
+
+import model.Ingredient;
+import model.Recipe;
+import model.RecipeIngredient;
+import model.ShoppingItem;
+import model.ShoppingList;
+
 public class ShoppingListService{
     public ShoppingList generateShoppingList(List<Recipe> recipes){
         ShoppingList shoppingList = new ShoppingList();
@@ -17,9 +23,7 @@ public class ShoppingListService{
                 }
                 shoppingList.addItem(item);
             }
-        }
-        // Compare recipe ingredients with whats in the pantry and create shopping list
-        
+        }        
         return shoppingList;
     }
 }

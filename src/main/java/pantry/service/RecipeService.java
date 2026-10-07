@@ -1,5 +1,12 @@
+package service;
+
+import model.Ingredient;
+import model.Recipe;
+import model.RecipeIngredient;
+
 import java.util.ArrayList;
 import java.util.List;
+
 public class RecipeService{
     private PantryService PantryService;
     private List<Recipe> recipes;

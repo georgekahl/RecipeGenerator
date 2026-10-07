@@ -1,5 +1,7 @@
-import java.util.ArrayList;
-import java.util.List;
+package model;
+
+import java.time.LocalDate;
+
 public class Ingredient{
     private String name;
     private double quantity;

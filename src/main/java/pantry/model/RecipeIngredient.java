@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+package model;
+
 public class RecipeIngredient{
     private String ingredientName;
     private double quantity;

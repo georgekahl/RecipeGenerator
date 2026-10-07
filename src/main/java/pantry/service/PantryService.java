@@ -1,5 +1,10 @@
+package service;
+
+import model.Ingredient;
+
 import java.util.ArrayList;
 import java.util.List;
+
 public class PantryService{
     private List<Ingredients> ingredients;
 
