@@ -1,8 +1,17 @@
 # Java compiled files
 *.class
 
+#Maven buidl output
+target/
+
 # VS Code
 .vscode/
 
 # IntelliJ
 .idea/
+
+#Java packaged files
+*.jar
+
+#Windows files
+Thumbs.dbs
