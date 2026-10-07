@@ -18,7 +18,7 @@ public class Database {
         String sql = """
                 CREATE TABLE IF NOT EXISTS ingredients (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    name TEXT NOT NULL,
+                    name TEXT NOT NULL UNIQUE,
                     quantity REAL NOT NULL,
                     unit TEXT NOT NULL,
                     expiry_date TEXT

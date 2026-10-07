@@ -1,24 +1,31 @@
 package pantry.service;
 
 import pantry.model.Ingredient;
+import pantry.database.IngredientDao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PantryService{
     private List<Ingredient> ingredients;
+    private IngredientDao ingredientDao;
 
-    public PantryService(){
+    public PantryService(IngredientDao ingredientDao){
         ingredients = new ArrayList<>();
+        this.ingredientDao = ingredientDao;
+
+        ingredients = ingredientDao.findAll();
     }
     public void addIngredient(Ingredient ingredient){
         ingredients.add(ingredient);
+        ingredientDao.saveIngredient(ingredient);
     }
 
     public void removeIngredient(String name){
         for (Ingredient ingredient : ingredients){
             if (ingredient.getName().equalsIgnoreCase(name)){
                 ingredients.remove(ingredient);
+                ingredientDao.deleteIngredient(name);
                 return;
             }
         }
@@ -28,6 +35,7 @@ public class PantryService{
         for (Ingredient ingredient : ingredients){
             if (ingredient.getName().equalsIgnoreCase(name)){
                 ingredient.setQuantity(quantity);
+                ingredientDao.updateIngredient(ingredient);
                 return;
             }
         }

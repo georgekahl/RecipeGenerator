@@ -58,4 +58,52 @@ public class IngredientDao{
         }
         return ingredients;
     }
+
+    public void updateIngredient(Ingredient ingredient){
+        String sql = """
+                UPDATE ingredients SET quantity = ?, unit = ?, expiry_date = ? WHERE name = ?
+                """;
+        try (Connection connection = Database.connect();
+            PreparedStatement statement = connection.prepareStatement(sql)){
+            
+            statement.setDouble(1, ingredient.getQuantity());
+            statement.setString(2, ingredient.getUnit());
+            statement.setString(3, ingredient.getExpiryDate().toString());
+            statement.setString(4, ingredient.getName());
+
+            int rowsUpdated = statement.executeUpdate();
+
+            if(rowsUpdated > 0){
+                System.out.println("Ingredient updated!");
+            }else {
+                System.out.println("Ingredient not found!");
+            }
+
+    } catch (SQLException e){
+            System.out.println("Failed to update ingredient");
+            e.printStackTrace();
+        }
+    }
+    public void deleteIngredient(String name){
+        String sql = """
+                DELETE FROM ingredients WHERE name = ?
+                """;
+        
+        try (Connection connection = Database.connect();
+            PreparedStatement statement = connection.prepareStatement(sql)){
+            statement.setString(1, name);
+
+            int rowsDeleted = statement.executeUpdate();
+
+            if (rowsDeleted > 0){
+                System.out.println("Ingredient deleted");
+            }else{
+                System.out.println("Ingredient not found");
+            }
+        } catch (SQLException e){
+            System.out.println("Failed to delete ingredient");
+            e.printStackTrace();
+        }
+    }
+
 }

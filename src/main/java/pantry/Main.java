@@ -31,9 +31,8 @@ public class Main{
 
         Database.createTables();
 
-        PantryService pantryService = new PantryService();
-
         IngredientDao ingredientDao = new IngredientDao();
+        PantryService pantryService = new PantryService(ingredientDao);
 
         Ingredient chicken = new Ingredient("Chicken", 300, "g", LocalDate.now().plusDays(2));
         Ingredient rice = new Ingredient("Rice", 1000, "g", LocalDate.now().plusMonths(6));
@@ -42,10 +41,6 @@ public class Main{
         pantryService.addIngredient(chicken);
         pantryService.addIngredient(rice);
         pantryService.addIngredient(onion);
-
-        ingredientDao.saveIngredient(chicken);
-        ingredientDao.saveIngredient(rice);
-        ingredientDao.saveIngredient(onion);
 
         List<Ingredient> databaseIngredients = ingredientDao.findAll();
         System.out.println("Ingredients from database:");
