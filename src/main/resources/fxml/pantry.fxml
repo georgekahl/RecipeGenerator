@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/22"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pantry.controller.PantryController">
+
+    <top>
+        <HBox spacing="20" styleClass="content">
+
+            <Button text="Home"
+                    onAction="#goHome"/>
+
+            <Label text="Pantry"
+                   styleClass="page-title"/>
+
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" styleClass="content">
+
+            <TableView fx:id="pantryTable">
+
+                <columns>
+
+                    <TableColumn text="Ingredient"
+                                 fx:id="nameColumn"/>
+
+                    <TableColumn text="Quantity"
+                                 fx:id="quantityColumn"/>
+
+                    <TableColumn text="Unit"
+                                 fx:id="unitColumn"/>
+
+                    <TableColumn text="Expiry Date"
+                                 fx:id="expiryColumn"/>
+
+                </columns>
+
+            </TableView>
+
+            <HBox spacing = "10">
+
+                <Button text="Add Ingredient"
+                        onAction="#addIngredient"/>
+
+                <Button text="Remove Ingredient"
+                        onAction="#removeIngredient"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

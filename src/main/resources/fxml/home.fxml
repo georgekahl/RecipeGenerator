@@ -8,7 +8,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/22"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="pantry.HomeController">
+            fx:controller="pantry.controller.HomeController">
 
     <left>
         <VBox styleClass="sidebar" spacing="15">
@@ -17,11 +17,6 @@
                    styleClass="app-title"/>
 
             <VBox spacing="8">
-
-                <Button text="Home"
-                        styleClass="nav-button"
-                        maxWidth="Infinity"
-                        onAction = "#openHome"/>
 
                 <Button text="Pantry"
                         styleClass="nav-button"

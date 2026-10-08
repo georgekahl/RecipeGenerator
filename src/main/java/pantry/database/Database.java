@@ -15,7 +15,8 @@ public class Database {
 
     public static void createTables() {
 
-        String sql = """
+        // Ingredients taboe
+        String ingredientsSql = """
                 CREATE TABLE IF NOT EXISTS ingredients (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     name TEXT NOT NULL UNIQUE,
@@ -25,10 +26,35 @@ public class Database {
                 )
                 """;
 
+        // Recipes table
+        String recipesSql = """
+                CREATE TABLE IF NOT EXISTS recipes(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                instructions TEXT
+                )
+                """;
+
+        // Recipe ingredients table
+        String recipeIngredientSql = """
+                CREATE TABLE IF NOT EXISTS recipe_ingredients(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                recipe_id INTEGER NOT NULL,
+                ingredient_name TEXT NOT NULL,
+                quantity REAL NOT NULL,
+                unit TEXT NOT NULL,
+                FOREIGN KEY (recipe_id) REFERENCES recipes(id)
+                )
+                """;
+
+
+
         try (Connection connection = connect();
              Statement statement = connection.createStatement()) {
 
-            statement.execute(sql);
+            statement.execute(ingredientsSql);
+            statement.execute(recipesSql);
+            statement.execute(recipeIngredientSql);
 
             System.out.println("Ingredients table created!");
 
