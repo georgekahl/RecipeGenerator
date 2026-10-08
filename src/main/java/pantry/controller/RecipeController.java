@@ -174,6 +174,9 @@ public class RecipeController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
             Parent homePage = loader.load();
             Scene scene = new Scene(homePage, 1100, 700);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+
+
             Stage stage = (Stage) recipeList.getScene().getWindow();
             stage.setScene(scene);
             stage.setTitle("Recipe Generator");

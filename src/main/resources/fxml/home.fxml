@@ -21,17 +21,17 @@
                 <Button text="Pantry"
                         styleClass="nav-button"
                         maxWidth="Infinity"
-                        onAction = "#openPantry"/>
+                        onAction="#openPantry"/>
 
                 <Button text="Recipes"
                         styleClass="nav-button"
                         maxWidth="Infinity"
-                        onAction = "#openRecipes"/>
+                        onAction="#openRecipes"/>
 
                 <Button text="Shopping List"
                         styleClass="nav-button"
                         maxWidth="Infinity"
-                        onAction = "#openShoppingList"/>
+                        onAction="#openShoppingList"/>
 
             </VBox>
 
@@ -50,6 +50,7 @@
             <HBox spacing="15">
 
                 <VBox styleClass="stat-card" spacing="5">
+
                     <Label text="Pantry"
                            styleClass="stat-title"/>
 
@@ -59,9 +60,11 @@
 
                     <Label text="Ingredients"
                            styleClass="stat-description"/>
+
                 </VBox>
 
                 <VBox styleClass="stat-card" spacing="5">
+
                     <Label text="Recipes"
                            styleClass="stat-title"/>
 
@@ -71,9 +74,11 @@
 
                     <Label text="Available recipes"
                            styleClass="stat-description"/>
+
                 </VBox>
 
                 <VBox styleClass="stat-card" spacing="5">
+
                     <Label text="Expiring Soon"
                            styleClass="stat-title"/>
 
@@ -83,19 +88,10 @@
 
                     <Label text="Ingredients expiring"
                            styleClass="stat-description"/>
+
                 </VBox>
 
             </HBox>
-
-            <Label text="Pantry"
-                   styleClass="section-title"/>
-
-            <VBox styleClass="pantry-preview">
-
-                <Label text="Your pantry is currently empty."
-                       styleClass="empty-message"/>
-
-            </VBox>
 
         </VBox>
     </center>

@@ -9,6 +9,15 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
+import pantry.database.IngredientDao;
+import pantry.database.RecipeDao;
+import pantry.model.Ingredient;
+import pantry.model.Recipe;
+import pantry.service.PantryService;
+import pantry.service.RecipeService;
+
+import java.time.LocalDate;
+
 
 public class HomeController{
     @FXML
@@ -19,6 +28,39 @@ public class HomeController{
 
     @FXML
     private Label expiringCount;
+
+    private PantryService pantryService;
+    private RecipeService recipeService;
+
+    @FXML
+    private void initialize(){
+        pantryService = new PantryService(new IngredientDao());
+        recipeService = new RecipeService(pantryService);
+
+        updateDashboard();
+    }
+
+    private void updateDashboard(){
+        int pantrySize = pantryService.getIngredients().size();
+        pantryCount.setText(String.valueOf(pantrySize));
+
+        int recipeSize = recipeService.getRecipes().size();
+        recipeCount.setText(String.valueOf(recipeSize));
+
+        int expiring = 0;
+
+        LocalDate today = LocalDate.now();
+        LocalDate sevenDaysFromNow = today.plusDays(7);
+
+        for (Ingredient ingredient : pantryService.getIngredients()){
+            LocalDate expiryDate = ingredient.getExpiryDate();
+
+            if(expiryDate != null && !expiryDate.isBefore(today) && !expiryDate.isAfter(sevenDaysFromNow)){
+                expiring++;
+            }
+        }
+        expiringCount.setText(String.valueOf(expiring));
+    }
 
     @FXML
     private void openPantry(ActionEvent event){
@@ -59,8 +101,5 @@ public class HomeController{
             e.printStackTrace();
         }
     }
-
-
-
 
 }

@@ -9,6 +9,10 @@ import javafx.scene.layout.GridPane;
 import pantry.database.IngredientDao;
 import pantry.model.Ingredient;
 import pantry.service.PantryService;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.time.LocalDate;
 
@@ -103,11 +107,13 @@ public class PantryController{
     @FXML
     private void goHome(){
         try{
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/fxml/home.fxml"));
-            javafx.scene.Parent homePage = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
+            Parent homePage = loader.load();
 
-            javafx.scene.Scene scene = new javafx.scene.Scene(homePage, 1100, 700);
-            javafx.stage.Stage stage = (javafx.stage.Stage) pantryTable.getScene().getWindow();
+            Scene scene = new javafx.scene.Scene(homePage, 1100, 700);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+
+            Stage stage = (javafx.stage.Stage) pantryTable.getScene().getWindow();
             stage.setScene(scene);
             stage.setTitle("Recipe Generator");
         } catch (Exception e){
