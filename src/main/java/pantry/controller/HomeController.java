@@ -49,13 +49,17 @@ public class HomeController{
 
     @FXML
     private void openShoppingList(){
-        System.out.println("Shopping List button clicked");
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/shopping-list.fxml"));
+            Parent shoppingListPage = loader.load();
+            Stage stage = (Stage) pantryCount.getScene().getWindow();
+            stage.setScene(new Scene(shoppingListPage, 1100, 700));
+            stage.setTitle("Recipe Generator - ShoppingList");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    @FXML
-    private void openHome(){
-        System.out.println("Home button clicked");
-    }
 
 
 
