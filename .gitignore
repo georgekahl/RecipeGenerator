@@ -1,17 +1,30 @@
 # Java compiled files
 *.class
 
-#Maven buidl output
+#Maven build output
 target/
+
+# SQLite database
+pantry.db
+*.db
+*.db-journal
 
 # VS Code
 .vscode/
 
 # IntelliJ
 .idea/
+*.iml
 
 #Java packaged files
 *.jar
 
 #Windows files
-Thumbs.dbs
+Thumbs.db
+Desktop.ini
+
+#macOS files
+.DS_Store
+
+#Logs
+*.log
